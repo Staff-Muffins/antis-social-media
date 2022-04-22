@@ -1,1 +1,2 @@
 # antis-social-media
+The web-application based on analysis and social media functionality. For the beginning, the web-application will be created with HTML and SCSS. Then, the application will be refactored to the React with Redux (redux-saga) library for the better performance.
