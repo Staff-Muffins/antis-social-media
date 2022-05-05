@@ -27,6 +27,7 @@ const NavigationLink = ({
     <div className="navigation-link-container">
       <div
         className="navigation-link"
+        style={{ width: "100%" }}
         onClick={() => setShowDropdown(!showDropdown)}
       >
         {icon}
@@ -41,7 +42,7 @@ const NavigationLink = ({
           <ArrowIcon
             style={{
               transform: showDropdown ? "" : "rotate(180deg)",
-              marginLeft: "20px",
+              marginLeft: "auto",
               transition: "0.3s",
             }}
           />
