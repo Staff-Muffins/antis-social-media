@@ -1,0 +1,23 @@
+@import "vars";
+@import "mixins";
+@import "normalize";
+
+/* navigation */
+@import "./components/navigation/navigation.scss";
+
+/* main styles */
+
+body {
+  background-color: $background-dark;
+}
+body,
+#root,
+.application-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.application-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
