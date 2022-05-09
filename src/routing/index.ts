@@ -10,6 +10,7 @@ import StatisticPage from "../pages/SocialMedia/Statistic";
 import UsersPage from "../pages/SocialMedia/Users";
 import UserPage from "../pages/SocialMedia/Users/User";
 import NotFoundPage from "../pages/Static/NotFound";
+import { RedirectToHome } from "./Routing";
 
 export interface IRoute {
   readonly name: Pages;
@@ -93,12 +94,12 @@ class RoutingSchema {
         },
       ],
     },
-    {
-      name: "notFound",
-      path: "*",
-      isExact: true,
-      component: NotFoundPage,
-    },
+    // {
+    //   name: "notFound",
+    //   path: "*",
+    //   isExact: true,
+    //   component: RedirectToHome,
+    // },
   ];
   private findRouteByPath(path: string): IRoute | undefined {
     return this.schema.find(({ path: routePath }) => routePath === path);

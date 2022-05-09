@@ -1,13 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 // Routing schema
+import schema from "./index";
 import RoutingSchema, { IRoute } from "../routing";
 import { FullScreenContext } from "../context/FullScreen";
 import Navigation from "../components/Navigation";
 import { NotificationsIcon } from "../components/icons/Notification";
 import { ArrowIcon } from "../components/icons/Arrow";
+
+export const RedirectToHome = () => {
+  return <Redirect to={schema.getLink("analytic")} />;
+};
 
 const generateRoutes = (routes: IRoute[]) => {
   return routes.map(({ component: Component, ...route }) => (
@@ -50,7 +55,10 @@ const Routing: React.FC = () => {
             <ArrowIcon style={{ transform: "rotate(180deg)" }} />
           </div>
         </div>
-        <Switch>{Routes}</Switch>
+        <Switch>
+          {Routes}
+          <RedirectToHome />
+        </Switch>
       </div>
     </main>
   );
