@@ -2,13 +2,15 @@
 import React, { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-// Routing schema
+/* Routing schema */
 import schema from "./index";
 import RoutingSchema, { IRoute } from "../routing";
-import { FullScreenContext } from "../context/FullScreen";
+
+/* Utils */
 import Navigation from "../components/Navigation";
-import { NotificationsIcon } from "../components/icons/Notification";
 import { ArrowIcon } from "../components/icons/Arrow";
+import { FullScreenContext } from "../context/FullScreen";
+import { NotificationsIcon } from "../components/icons/Notification";
 
 export const RedirectToHome = () => {
   return <Redirect to={schema.getLink("analytic")} />;

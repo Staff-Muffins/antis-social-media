@@ -1,16 +1,12 @@
-import { matchPath } from "react-router";
-
 /* pages */
 import AnalyticPage from "../pages/Analytic";
 import MessagePage from "../pages/Message";
-import SocialMediaPage from "../pages/SocialMedia";
-import PostsPage from "../pages/SocialMedia/Posts";
-import ProfilePage from "../pages/SocialMedia/Profile";
-import StatisticPage from "../pages/SocialMedia/Statistic";
-import UsersPage from "../pages/SocialMedia/Users";
-import UserPage from "../pages/SocialMedia/Users/User";
-import NotFoundPage from "../pages/Static/NotFound";
-import { RedirectToHome } from "./Routing";
+import SettingsPage from "../pages/Settings";
+import PostsPage from "../pages/Posts";
+import ProfilePage from "../pages/Profile";
+import StatisticPage from "../pages/Statistic";
+import UsersPage from "../pages/Users";
+import UserPage from "../pages/Users/User";
 
 export interface IRoute {
   readonly name: Pages;
@@ -30,7 +26,8 @@ export type Pages =
   | "message"
   | "profile"
   | "users"
-  | "user";
+  | "user"
+  | "settings";
 
 class RoutingSchema {
   private schema: IRoute[] = [
@@ -94,12 +91,13 @@ class RoutingSchema {
         },
       ],
     },
-    // {
-    //   name: "notFound",
-    //   path: "*",
-    //   isExact: true,
-    //   component: RedirectToHome,
-    // },
+    {
+      name: "settings",
+      path: "/settings",
+      title: "Settings",
+      isExact: false,
+      component: SettingsPage,
+    },
   ];
   private findRouteByPath(path: string): IRoute | undefined {
     return this.schema.find(({ path: routePath }) => routePath === path);

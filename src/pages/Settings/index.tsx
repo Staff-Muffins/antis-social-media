@@ -1,11 +1,11 @@
 import React from "react";
 
-const Settings = () => {
+const SettingsPage = () => {
   return (
     <div className="settings-container">
-      <h1>This is the settings page</h1>
+      <h1>This is settings page</h1>
     </div>
   );
 };
 
-export default Settings;
+export default SettingsPage;

@@ -7,4 +7,5 @@ export enum PageEnum {
   POSTS = "posts",
   STATISTIC = "statistic",
   USERS = "users",
+  SETTINGS = "settings",
 }

@@ -3,16 +3,15 @@ import React, { FC, ComponentProps } from "react";
 interface Props extends ComponentProps<"svg"> {
   width?: number;
   height?: number;
-  active?: boolean;
+  active?: string;
 }
 
-export const SocialMediaIcon: FC<Props> = ({
+export const NavigationUsersIcon: FC<Props> = ({
   width,
   height,
-  active,
+  color,
   ...props
 }) => {
-  let color = active ? "#EE6C4D" : "#9394A1";
   return (
     <svg
       {...props}
@@ -30,8 +29,8 @@ export const SocialMediaIcon: FC<Props> = ({
   );
 };
 
-SocialMediaIcon.defaultProps = {
+NavigationUsersIcon.defaultProps = {
   width: 21,
   height: 20,
-  active: false,
+  color: "#ffffff",
 };

@@ -5,7 +5,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import FullScreenProvider from "./context/FullScreen";
 import Routing from "./routing/Routing";
 
-/* styles */
 import "./assets/scss/main.scss";
 
 const root = ReactDOM.createRoot(

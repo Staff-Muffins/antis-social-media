@@ -1,19 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, ComponentType, useState } from "react";
+
+/* Routing */
+import Link from "../routing/InnerLink";
+import RoutingSchema, { Pages } from "../routing";
 import { matchPath, useLocation } from "react-router-dom";
 
-/* routing */
-import RoutingSchema, { Pages } from "../routing";
-import Link from "../routing/InnerLink";
-
-/* utils */
-import { NavigationProfileIcon } from "./icons/Navigation/Profile";
-import { LogoIcon } from "./icons/Logo";
-import { NavigationMenuIcon } from "./icons/Navigation/Menu";
+/* Utils */
 import { PageEnum } from "../config/constans";
+
+/* Icons */
 import { NavigationAnalyticIcon } from "./icons/Navigation/Analytic";
+import { NavigationSettingsIcon } from "./icons/Navigation/Settings";
 import { NavigationMessageIcon } from "./icons/Navigation/Message";
+import { NavigationProfileIcon } from "./icons/Navigation/Profile";
 import { NavigationLogoutIcon } from "./icons/Navigation/Logout";
+import { NavigationMenuIcon } from "./icons/Navigation/Menu";
+import { NavigationUsersIcon } from "./icons/Navigation/Users";
+import { LogoIcon } from "./icons/Logo";
 
 const mainLinks: {
   page: Pages;
@@ -41,6 +45,9 @@ const additionalLinks: {
   {
     page: PageEnum.USERS,
   },
+  {
+    page: PageEnum.SETTINGS,
+  },
 ];
 
 const NavMenuMainIcon: { [page: string]: ComponentType } = {
@@ -50,9 +57,10 @@ const NavMenuMainIcon: { [page: string]: ComponentType } = {
 };
 
 const NavMenuAdditionalIcon: { [page: string]: ComponentType } = {
-  [PageEnum.POSTS]: (props) => <NavigationAnalyticIcon {...props} />,
-  [PageEnum.STATISTIC]: (props) => <NavigationProfileIcon {...props} />,
-  [PageEnum.USERS]: (props) => <NavigationMessageIcon {...props} />,
+  [PageEnum.POSTS]: (props) => <NavigationMessageIcon {...props} />,
+  [PageEnum.STATISTIC]: (props) => <NavigationAnalyticIcon {...props} />,
+  [PageEnum.USERS]: (props) => <NavigationUsersIcon {...props} />,
+  [PageEnum.SETTINGS]: (props) => <NavigationSettingsIcon {...props} />,
 };
 
 export const Navigation: FC = () => {
@@ -69,13 +77,11 @@ export const Navigation: FC = () => {
             <LogoIcon />
             <span className="logo-title">Antis</span>
           </div>
-
           <ul className="nav-menu">
             {mainLinks.map((menuItem) => {
               const purposeRoute = RoutingSchema.getSchemaItem(menuItem.page);
               const isActive = matchPath(pathname, String(purposeRoute?.path));
               if (isActive && link !== menuItem.page) setLink(menuItem.page);
-
               return (
                 <li
                   className="nav-menu__item"
@@ -120,12 +126,9 @@ export const Navigation: FC = () => {
           <ul className="nav-menu">
             {additionalLinks.map((menuItem) => {
               let hasLink = true;
-
               const purposeRoute = RoutingSchema.getSchemaItem(menuItem.page);
               const isActive = matchPath(pathname, String(purposeRoute?.path));
-              if (isActive && link !== menuItem.page) {
-                setLink(menuItem.page);
-              }
+              if (isActive && link !== menuItem.page) setLink(menuItem.page);
               return (
                 <li
                   key={menuItem.page}

@@ -6,7 +6,6 @@ import {
   matchPath,
   useLocation,
 } from "react-router-dom";
-
 import schema, { Pages } from "./index";
 
 interface Props {

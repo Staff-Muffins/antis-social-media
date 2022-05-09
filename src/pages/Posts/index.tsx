@@ -1,11 +1,11 @@
 import React from "react";
 
-const PostPage = () => {
+const PostsPage = () => {
   return (
     <div className="posts-container">
-      <h1>This is post! container</h1>
+      <h1>This is posts page</h1>
     </div>
   );
 };
 
-export default PostPage;
+export default PostsPage;
