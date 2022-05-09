@@ -6,6 +6,8 @@ import { Switch, Route } from "react-router-dom";
 import RoutingSchema, { IRoute } from "../routing";
 import { FullScreenContext } from "../context/FullScreen";
 import Navigation from "../components/Navigation";
+import { NotificationsIcon } from "../components/icons/Notification";
+import { ArrowIcon } from "../components/icons/Arrow";
 
 const generateRoutes = (routes: IRoute[]) => {
   return routes.map(({ component: Component, ...route }) => (
@@ -40,6 +42,14 @@ const Routing: React.FC = () => {
     <main className="main-layout">
       {!isFullScreen && <Navigation />}
       <div className="main" id={"main"}>
+        <div className="herder">
+          <NotificationsIcon />
+          <div className="profile">
+            <div className="profile-icon" />
+            <span className="profile-nickname">Ferra Alexandra</span>
+            <ArrowIcon style={{ transform: "rotate(180deg)" }} />
+          </div>
+        </div>
         <Switch>{Routes}</Switch>
       </div>
     </main>
