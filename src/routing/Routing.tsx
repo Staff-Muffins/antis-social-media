@@ -19,7 +19,6 @@ export const RedirectToHome = () => {
 const generateRoutes = (routes: IRoute[]) => {
   return routes.map(({ component: Component, ...route }) => (
     <Route
-      exact={route.isExact}
       key={route.name}
       path={route.path}
       render={(props: any) => {
