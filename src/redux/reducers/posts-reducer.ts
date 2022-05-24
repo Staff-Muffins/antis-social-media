@@ -13,7 +13,25 @@ let initialState = {
       comments: [
         {
           id: 1,
-          text: "Super cool",
+          text: "Super cool 1",
+          user: {
+            id: 1,
+            firstName: "Test",
+            lastName: "Test",
+          },
+        },
+        {
+          id: 2,
+          text: "Super cool 2",
+          user: {
+            id: 1,
+            firstName: "Test",
+            lastName: "Test",
+          },
+        },
+        {
+          id: 3,
+          text: "Super cool 3",
           user: {
             id: 1,
             firstName: "Test",
@@ -35,7 +53,7 @@ const postsReducer = (
   switch (action.type) {
     case "ADD_POST": {
       let newPost = {
-        id: state.posts[postsReducer.length - 1].id + 1,
+        id: state.posts[postsReducer.length + 1].id + 1,
         description: action.post.description,
         likes: action.post.likes,
         reaction: action.post.reaction,
