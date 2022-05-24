@@ -2,7 +2,7 @@
 import { IPost } from "../models";
 import { InferActionsTypes } from "../store";
 
-// INITIAL STATE
+/* Initial state */
 let initialState = {
   posts: [
     {
@@ -27,30 +27,18 @@ let initialState = {
 
 type initialStateType = typeof initialState;
 
-// THIS REDUCER TAKES IN THE STATE AND THE ACTION CALLED
+/* Reducer and all actions */
 const postsReducer = (
   state: initialStateType = initialState,
   action: ActionType
 ): initialStateType => {
   switch (action.type) {
     case "ADD_POST": {
-      // ADD POST
       let newPost = {
-        id: 1,
-        description: "",
-        likes: 10,
-        reaction: 10,
-        comments: [
-          {
-            id: 1,
-            text: "Super cool 2",
-            user: {
-              id: 1,
-              firstName: "Test 2",
-              lastName: "Test 2",
-            },
-          },
-        ],
+        id: state.posts[postsReducer.length - 1].id + 1,
+        description: action.post.description,
+        likes: action.post.likes,
+        reaction: action.post.reaction,
       };
       return {
         ...state,
@@ -62,14 +50,15 @@ const postsReducer = (
   }
 };
 
-// action creators
+/* Actions creators */
 type ActionType = InferActionsTypes<typeof actions>;
+
 export const actions = {
-  // ADD POST ACTION CREATOR
-  addPostActionCreator: (newPost: IPost) =>
+  /* Action for adding a new post */
+  addPostActionCreator: (post: IPost) =>
     ({
       type: "ADD_POST",
-      newPost,
+      post,
     } as const),
 };
 

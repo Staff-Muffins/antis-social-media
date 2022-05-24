@@ -7,6 +7,7 @@ import Routing from "./routing/Routing";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 
+/* styles */
 import "./assets/scss/main.scss";
 
 const root = ReactDOM.createRoot(
